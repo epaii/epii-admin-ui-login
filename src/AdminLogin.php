@@ -25,7 +25,7 @@ class AdminLogin
             "http://epii.gitee.io/static/imgs/login_imgs/login4.jpg"],
         "username_tip" => "用户名或电子邮件",
         "password_tip" => "密　码",
-        "btn_msg"=>"登 录"
+        "btn_msg" => "登 录"
 
     ];
 
@@ -41,8 +41,7 @@ class AdminLogin
         }
 
 
-        if (!$config_value["success_url"])
-        {
+        if (!$config_value["success_url"]) {
             echo "admin ui login config must include success_url ";
             exit;
         }
@@ -51,8 +50,13 @@ class AdminLogin
             $ret = $config->onPost($_POST["username"], $_POST["password"], $error_msg);
 
             if ($ret) {
-                echo JsCmd::alertUrl($config_value["success_url"], $error_msg);
+                if ($error_msg)
+                    JsCmd::toastUrl($config_value["success_url"], $error_msg);
+                else {
+                    JsCmd::url($config_value["success_url"]);
+                }
             } else {
+
                 echo JsCmd::make()->addCmd(Alert::make()->msg($error_msg)->onOk(null))->run();
             }
             exit;
@@ -76,7 +80,7 @@ interface IloginConfig
 {
     public function onPost(string $username, string $password, &$msg): bool;
 
-    public function getConfigs(): array ;
+    public function getConfigs(): array;
 
 
 }
