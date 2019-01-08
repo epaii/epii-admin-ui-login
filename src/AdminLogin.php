@@ -51,9 +51,9 @@ class AdminLogin
 
             if ($ret) {
                 if ($error_msg)
-                    JsCmd::toastUrl($config_value["success_url"], $error_msg);
+                  echo   JsCmd::toastUrl($config_value["success_url"], $error_msg);
                 else {
-                    JsCmd::url($config_value["success_url"]);
+                  echo   JsCmd::url($config_value["success_url"]);
                 }
             } else {
 
