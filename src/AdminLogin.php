@@ -47,14 +47,15 @@ class AdminLogin
         }
 
         if ($_POST) {
+
             $ret = $config->onPost($_POST["username"], $_POST["password"], $error_msg);
 
             if ($ret) {
                 if ($error_msg)
-                  echo   JsCmd::toastUrl($config_value["success_url"], $error_msg);
-                else {
+                  echo   JsCmd::alertUrl($config_value["success_url"], $error_msg);
+                else
                   echo   JsCmd::url($config_value["success_url"]);
-                }
+
             } else {
 
                 echo JsCmd::make()->addCmd(Alert::make()->msg($error_msg)->onOk(null))->run();
