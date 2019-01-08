@@ -6,9 +6,9 @@
         -moz-background-size: 100% 100%;
 
         animation-name: myfirst;
-        animation-duration: 12s;
+        animation-duration: 30s;
         /*变换时间*/
-        animation-delay: 2s;
+        animation-delay: 1s;
         /*动画开始时间*/
         animation-iteration-count: infinite;
         /*下一周期循环播放*/
