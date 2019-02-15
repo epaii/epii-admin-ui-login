@@ -4,8 +4,9 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
         -moz-background-size: 100% 100%;
-
+    <?php  if(count($bg_imgs)==4): ?>
         animation-name: myfirst;
+    <?php endif; ?>
         animation-duration: 30s;
         /*变换时间*/
         animation-delay: 1s;
@@ -15,6 +16,7 @@
         animation-play-state: running;
         /*动画开始运行*/
     }
+<?php  if(count($bg_imgs)==4): ?>
 
     @keyframes myfirst {
         0% {
@@ -42,6 +44,8 @@
             -moz-background-size: 100% 100%;
         }
     }
+    <?php endif; ?>
+
     .form-bg{
         background: #00b4ef;
     }
