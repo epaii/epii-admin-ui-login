@@ -77,11 +77,3 @@ class AdminLogin
     }
 }
 
-interface IloginConfig
-{
-    public function onPost(string $username, string $password, &$msg): bool;
-
-    public function getConfigs(): array;
-
-
-}
