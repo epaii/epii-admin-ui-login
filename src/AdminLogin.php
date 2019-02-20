@@ -52,9 +52,9 @@ class AdminLogin
 
             if ($ret) {
                 if ($error_msg)
-                  echo   JsCmd::alertUrl($config_value["success_url"], $error_msg);
+                    echo JsCmd::alertUrl($config_value["success_url"], $error_msg);
                 else
-                  echo   JsCmd::url($config_value["success_url"]);
+                    echo JsCmd::url($config_value["success_url"]);
 
             } else {
 
@@ -64,7 +64,7 @@ class AdminLogin
         } else {
             ob_start();
             $bg_imgs = $config_value["bg_imgs"];
-            if (count($bg_imgs) != 4) {
+            if (!in_array(count($bg_imgs), [1, 4])) {
                 echo "admin ui login must include 4 imgs ";
                 exit;
             }
