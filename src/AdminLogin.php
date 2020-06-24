@@ -20,14 +20,20 @@ class AdminLogin
         "success_url" => "",
         "bg_imgs" => [
             "http://epii.gitee.io/static/imgs/login_imgs/login1.jpg",
-            "http://epii.gitee.io/static/imgs/login_imgs/login2.jpg",
-            "http://epii.gitee.io/static/imgs/login_imgs/login3.jpg",
-            "http://epii.gitee.io/static/imgs/login_imgs/login4.jpg"],
+           ],
         "username_tip" => "用户名或电子邮件",
         "password_tip" => "密　码",
         "btn_msg" => "登 录"
 
     ];
+
+    private static function get_defualt_config(){
+        $config = self::$d_config;
+        $image_count = file_get_contents("http://epii.gitee.io/static/imgs/login_imgs/count.html?_r=".rand(0,1000));
+        $index = rand(1,$image_count);
+        $config["bg_imgs"] = ["http://epii.gitee.io/static/imgs/login_imgs/login".$index.".jpg"];
+        return $config;
+    }
 
     public static function login(IloginConfig $config)
     {
@@ -35,7 +41,7 @@ class AdminLogin
         $config_value = $config->getConfigs();
 
         if ($config_value) {
-            $config_value = array_merge(self::$d_config, $config_value);
+            $config_value = array_merge(self::get_defualt_config(), $config_value);
         } else {
             $config_value = self::$d_config;
         }
