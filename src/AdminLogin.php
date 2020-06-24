@@ -18,9 +18,7 @@ class AdminLogin
     private static $d_config = [
         "title" => "后台登录",
         "success_url" => "",
-        "bg_imgs" => [
-            "http://epii.gitee.io/static/imgs/login_imgs/login1.jpg",
-           ],
+
         "username_tip" => "用户名或电子邮件",
         "password_tip" => "密　码",
         "btn_msg" => "登 录"
@@ -28,7 +26,7 @@ class AdminLogin
     ];
 
     private static function get_defualt_config(){
-        $config = self::$d_config;
+        $config = [];
         $image_count = file_get_contents("http://epii.gitee.io/static/imgs/login_imgs/count.html?_r=".rand(0,1000));
         $index = rand(1,$image_count);
         $config["bg_imgs"] = ["http://epii.gitee.io/static/imgs/login_imgs/login".$index.".jpg"];
@@ -41,9 +39,13 @@ class AdminLogin
         $config_value = $config->getConfigs();
 
         if ($config_value) {
-            $config_value = array_merge(self::get_defualt_config(), $config_value);
+            $config_value = array_merge(self::$d_config, $config_value);
         } else {
-            $config_value = self::get_defualt_config();
+            $config_value = self::$d_config;
+        }
+        if(!isset($config_value["bg_imgs"]))
+        {   
+            $config_value= array_merge( $config_value,self::get_defualt_config());
         }
 
 
