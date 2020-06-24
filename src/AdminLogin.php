@@ -43,7 +43,7 @@ class AdminLogin
         if ($config_value) {
             $config_value = array_merge(self::get_defualt_config(), $config_value);
         } else {
-            $config_value = self::$d_config;
+            $config_value = self::get_defualt_config();
         }
 
 
