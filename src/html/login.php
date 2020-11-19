@@ -76,7 +76,7 @@
     .form-horizontal .heading{
         display: block;
         font-size: <?php echo $title_size; ?>;
-        font-weight: 700;
+        font-weight: 400;
         padding: 35px 0;
         border-bottom: 1px solid #f0f0f0;
         margin-bottom: 30px;
