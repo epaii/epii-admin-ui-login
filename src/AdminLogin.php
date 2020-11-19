@@ -24,7 +24,7 @@ class AdminLogin
         "password_tip" => "请输入密码",
         "btn_msg" => "登 录",
         "btn_class"=>"btn-info",
-        "form_algin"=>"right", //left right center or some as margin-top:50%;margin-left:300px
+        "form_algin"=>"center", //left right center or some as margin-top:50%;margin-left:300px
         "btn_reg_msg" => "",//不为空则显示注册按钮
         "btn_reg_class"=>"btn-outline-info",
         "btn_reg_url"=>"",
