@@ -3,7 +3,10 @@
         background: url("<?php echo  $bg_imgs[0]; ?>");
         background-repeat: no-repeat;
         background-size: 100% 100%;
+        
+
         -moz-background-size: 100% 100%;
+        height: 100vh;
     <?php  if(count($bg_imgs)==4): ?>
         animation-name: myfirst;
     <?php endif; ?>
@@ -51,28 +54,45 @@
     }
     .form-horizontal{
         background: rgba(255,255,255,0.5);
-        padding-bottom: 70px;
-        border-radius: 15px;
+        padding-bottom: 40px;
+        border-radius: 5px;
         text-align: center;
-        margin-top:80px;
+        min-width: 400px;
+        width: 25%;
+        <?php if($form_algin=="center") :?>
+        margin: auto;
+        margin-top:5%;
+        <?php elseif($form_algin=="left") :?>
+        margin-top: 13%;
+        margin-left: 80px;
+        <?php  elseif($form_algin=="right")  :?>
+        margin-top: 13%;
+         margin-right: 80px;
+         float: right; 
+         <?php  else :?>
+            <?php echo $form_algin;?>
+        <?php endif;?>
     }
     .form-horizontal .heading{
         display: block;
-        font-size: 35px;
+        font-size: <?php echo $title_size; ?>;
         font-weight: 700;
         padding: 35px 0;
         border-bottom: 1px solid #f0f0f0;
         margin-bottom: 30px;
+        color: <?php echo $title_color; ?>;
+       
     }
     .form-horizontal .form-group{
         padding: 0 40px;
         margin: 0 0 25px 0;
         position: relative;
+       
     }
     .form-horizontal .form-control{
         background: #f0f0f0;
         border: none;
-        border-radius: 20px;
+        border-radius: 5px;
         box-shadow: none;
         padding: 0 20px 0 45px;
         height: 40px;
@@ -153,17 +173,18 @@
         text-transform: capitalize;
     }
     .form-horizontal .btn{
-        float: right;
+        /* float: right; */
         font-size: 18px;
         color: #fff;
-        background: #00b4ef;
-        border-radius: 30px;
+        /* background:  <?php  echo $btn_color;?>; */
+        border-radius: 5px;
         padding: 10px 25px;
-        border: none;
+       
         text-transform: capitalize;
         transition: all 0.5s ease 0s;
+        width: 100%;
     }
-    @media only screen and (max-width: 479px){
+    @media only screen and (max-width: 679px){
         .form-horizontal .form-group{
             padding: 0 25px;
         }
@@ -173,14 +194,44 @@
         .form-horizontal .btn{
             padding: 10px 20px;
         }
+        .form-horizontal{
+        margin-top: 20%;
+        width: 100%;
+        margin: auto;
+        float: clear; 
+         
+    }
     }
 
+ 
+    .content{ 
+        height: 100vh !important;
+    }
+
+    .form-horizontal .touxaing {
+						
+						margin: 0 auto;
+                        margin-bottom: -30px;
+                      
+	}
+	.form-horizontal .tou_img{
+						width: 75px;
+						height: 75px;
+						border-radius: 50%;
+                        margin-top: 35px;
+
+	}
 </style>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-5 m-auto p5">
+<div  >
+   
+       
             <form class="form-horizontal" data-form="1" method="post">
+                <?php if($logo): ?>
+                 <div class="touxaing">
+                 <img class="tou_img" src="<?php echo $logo;?>" />
+                </div>
+                <?php endif; ?>  
                 <span class="heading"><?php echo $title; ?></span>
                 <div class="form-group">
                     <input type="text" class="form-control" name="username" placeholder="<?php echo $config_value["username_tip"]; ?>" required>
@@ -191,11 +242,20 @@
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="clear: both;">
 
-                    <button type="submit" class="btn btn-default"><?php echo $config_value["btn_msg"]; ?></button>
+                    <button type="submit" class="btn  <?php echo $config_value["btn_class"]; ?>"><?php echo $config_value["btn_msg"]; ?></button>
+                    
+                </div>
+                <div class="form-group" style="clear: both;">
+                <?php if($config_value["btn_reg_msg"]) :?>
+                <button   class="btn   <?php echo $config_value["btn_reg_class"]; ?> btn-dialog" data-title="<?php echo $config_value["btn_reg_msg"]; ?>" data-area="<?php echo $config_value["btn_reg_dialog_area"]; ?>" data-url="<?php echo $config_value["btn_reg_url"]; ?>" style="color:#3e3e3e"><?php echo $config_value["btn_reg_msg"]; ?></button>
+                <?php endif; ?> 
+                <?php if($config_value["btn_other"]) :?>
+                    <?php echo $config_value["btn_other"]; ?>
+                <?php endif; ?>  
                 </div>
             </form>
-        </div>
-    </div>
+        
+    
 </div>
