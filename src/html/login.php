@@ -176,7 +176,6 @@
         /* float: right; */
         font-size: 18px;
         color: #fff;
-        /* background:  <?php  echo $btn_color;?>; */
         border-radius: 5px;
         padding: 10px 25px;
        
