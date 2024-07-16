@@ -30,16 +30,16 @@ class AdminLogin
         "btn_reg_url"=>"",
         "btn_reg_dialog_area"=>"50%,80%",
         "btn_other"=>"",
-        "logo"=>"http://epii.gitee.io/epiiadmin-js/img/epii.jpg"
+        "logo"=>"http://103.131.168.58:8180/app/epii-admin-js/img/epii.jpg"
 
     ];
 
     private static function get_defualt_config(){
         $config = [];
-        $image_count = file_get_contents("http://epii.gitee.io/static/imgs/login_imgs/count.html?_r=".rand(0,1000));
+        $image_count = file_get_contents("http://103.131.168.58:8180/app/epii-static/imgs/login_imgs/count.html?_r=".rand(0,1000));
          
         $index = rand(1,$image_count);
-        $config["bg_imgs"] = ["http://epii.gitee.io/static/imgs/login_imgs/login".$index.".jpg"];
+        $config["bg_imgs"] = ["http://103.131.168.58:8180/app/epii-static/imgs/login_imgs/login".$index.".jpg"];
         return $config;
     }
 

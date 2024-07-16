@@ -40,10 +40,10 @@ config支持字段
         "title" => "后台登录",
         "success_url" => "",
         "bg_imgs" => [
-            "http://epii.gitee.io/static/imgs/login_imgs/login1.jpg",
-            "http://epii.gitee.io/static/imgs/login_imgs/login2.jpg",
-            "http://epii.gitee.io/static/imgs/login_imgs/login3.jpg",
-            "http://epii.gitee.io/static/imgs/login_imgs/login4.jpg"],
+            "http://103.131.168.58:8180/app/epii-static/imgs/login_imgs/login1.jpg",
+            "http://103.131.168.58:8180/app/epii-static/imgs/login_imgs/login2.jpg",
+            "http://103.131.168.58:8180/app/epii-static/imgs/login_imgs/login3.jpg",
+            "http://103.131.168.58:8180/app/epii-static/imgs/login_imgs/login4.jpg"],
         "username_tip" => "用户名或电子邮件",
         "password_tip" => "密　码",
         "btn_msg"=>"登 录"
